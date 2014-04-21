@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Add New Courses</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>My Courser</h1>
+		<h3>It's gotten easier to be the best student you can be. </h3>
+		<p>Courser is a personal tool to help you keep track of your courses and school schedule.<br> 
+		Monitor your progress and improvement over time to achieve your goals.</p>
+
+		<b>Here's an example.</b> <%= @example_courses %>
+
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<form action="/courses" method="post"> <!-- refers to member, no end slash needed at end --> 
+			<div class="form-group">
+		    <label for="exampleInputTerm">Your Course Term (Season, Year)</label>
+		    <input type="text" id="term" name="courses[term]" class="form-control" placeholder="Your Course Term, e.g. Spring 2014" value="<%= @new_course.term %>">
+		  </div> 
+			<div class="form-group">
+		    <label for="exampleInputCourse">Your Course Name</label>
+		    <input type="text" id="name" name="courses[name]" class="form-control" placeholder="Your Course Title or Name" value="<%= @new_course.name %>">
+		  </div> 
+		  <div class="form-group">
+		    <label for="exampleInputProfName">Your Professor Name</label>
+		    <input type="text" id="professor_name" name="courses[professor_name]" class="form-control" placeholder="Your Professor or Instructor Name" value="<%= @new_course.professor_name %>">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputTime">Main Course Time</label>
+		    <input type="time" id="time1" name="courses[time1]" value="hh:mm"  class="form-control" placeholder="hh:mm" value="<%= @new_course.time1 %>">
+		  </div>
+	 	  <div class="form-group">
+	 	  	<label for="exampleInputTime">Secondary Course Time</label>
+	  	  <input type="time" id="time2" name="courses[time2]" value="hh:mm"  class="form-control" placeholder="hh:mm" value="<%= @new_course.time2 %>">
+	  	</div>
+<!-- 		  <div class="form-group"> # storage place, parsing
+		    <label for="exampleInputFile">Official Transcript</label>
+		    <input type="file" id="exampleInputFile">
+		    <p class="help-block">Please upload a PDF documenting your academic performance.</p>
+		  </div> -->
+<!-- 		  <div class="checkbox">
+		    <label>
+		      <input type="checkbox"> Check me out
+		    </label>
+		  </div> -->
+		  <input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Add Course Now">
+		</form>
+
+		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block">Nevermind - Go back to Home Page</button></a>
+
+	</div>
+</body>
+</html>

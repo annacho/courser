@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Error</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>Error</h1>
+		<p>Uh-oh. Something went wrong.</p>
+
+		<b>Here's an example.</b> <%= @example_courses %>
+		
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<h4><p style="line-height:1.5">
+				<% @courses.each do |course| %>
+				<span class="label label-primary"><%= course.level %></span>&nbsp;&nbsp; <%= course.name %>&nbsp;<%= course.date %> - <a href="/courses/<%= course.id %>/edit">Edit</a><br>
+				<% end %>
+		</p></h4>
+
+		<br>
+		<br>	
+		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block">Go to Courses</button></a>
+
+		<br>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Schools</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>My Courser</h1>
+		<p>There are millions of courses currently being offered at schools!</p>
+
+		<b>Here's an example.</b> <%= @example_courses %>
+
+		<hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+
+		<h4><p style="line-height:1.5">
+			<% @courses.each do |course| %>
+			<span class="label label-primary"><%= course.level %></span> &nbsp;&nbsp;<%= course.name %>&nbsp;<%= course.date %> - <a href="/courses/<%= course.id %>/edit">Edit</a><br>
+			<% end %>
+		</p></h4>
+
+		<br>
+		<br>	
+		<a href="/courses/edit"><button type="button" class="btn btn-primary btn-lg btn-block">Edit Course</button></a>
+		<br>
+		<br>
+		<form action="/courses/<%= @course.id %>" method="post">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" button type="button" class="btn btn-primary btn-lg btn-block" value="Delete Course"></a>
+		</form> 
+		<br>
+		<br>
+		<a href="/courses/new"><button type="button" class="btn btn-primary btn-lg btn-block">Add New Course</button></a>
+		<br>
+		<br>
+
+	</div>
+</body>
+</html>
